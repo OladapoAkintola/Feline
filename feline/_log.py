@@ -6,6 +6,11 @@ from pathlib import Path
 
 _LOGGERS: dict[str, logging.Logger] = {}
 
+INFO = logging.INFO
+ERROR = logging.ERROR
+CRITICAL = logging.CRITICAL
+WARNING = logging.WARNING
+DEBUG = logging.DEBUG
 
 def check_prod() -> bool:
     """
@@ -21,7 +26,7 @@ def check_prod() -> bool:
 console_mode = check_prod()
 def get_logger(
     name: str,
-    level: int = logging.INFO,
+    level: int = INFO,
     filename: str = "app.log",
     max_bytes: int = 5 * 1024 * 1024,  # 5 MB
     backup_count: int = 5,
@@ -100,3 +105,6 @@ class BaseLogger:
             name, log_level, filename, max_bytes, backup_count, console,
             log_dir
         )
+
+    def _make_decorator(self, level: int, enabled: bool = True):
+        pass
