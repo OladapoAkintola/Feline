@@ -16,7 +16,7 @@ Feline wraps your callables with structured, rotating log output so you can trac
 
 ---
 
-## Installation
+## Installation(not available yet
 
 ```bash
 pip install feline
